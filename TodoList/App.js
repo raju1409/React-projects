@@ -7,7 +7,6 @@ function App() {
   const [newTask, setnewTask] = useState("");
 
   const handleNewTask = (event)=>{
-
     setnewTask(event.target.value)
   }
   const handleTodoList = ()=>{
@@ -16,22 +15,20 @@ function App() {
       Name : newTask,
       completeTask : false
     }
-    const arr = [...TodoList, Task]
-    setTodoList(arr)
+    setTodoList([...TodoList, Task])
     setnewTask("")
 
   }
   const deleteTask = (id)=>{
-    const newList = TodoList.filter((task)=>task.id!==id)
-    setTodoList(newList)
+    setTodoList(TodoList.filter((task)=>task.id!==id))
   }
   const handlecompleteTask = (id)=>{
-    setTodoList(TodoList.map((task)=>{
-      if (task.id === id){
-        return {...task, completeTask : true};
-      }else{
-        return task;
-      }
+    setTodoList(TodoList.map((task)=>{return task.id === id ? {...task, completeTask:true}:task
+      // if (task.id === id){
+      //   return {...task, completeTask : true};
+      // }else{
+      //   return task;
+      // }
     }))
     
 
