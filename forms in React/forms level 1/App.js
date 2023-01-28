@@ -8,7 +8,7 @@ function App() {
   })
   const {username, password } = data;
   const onChange = event =>{
-    setData({...data, [event.target.value]:[event.target.value]})
+    setData({...data, [event.target.name]:[event.target.value]})
   }
   const handleSubmit = (e) =>{
     e.preventDefault();
@@ -23,7 +23,7 @@ function App() {
             <input name="username" type="text" value={username}
              onChange={onChange} placeholder='Username' /> <br/>
 
-            <input name='password' type='text' value={password}
+            <input name='password' type='password' value={password}
              onChange={onChange} placeholder='Password' /> <br />
 
             <input name='submit' type='submit'/>
